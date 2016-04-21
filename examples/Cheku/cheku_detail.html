@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../../js/mui.min.js"></script>
+    <link href="../../css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	mui.plusReady(function(){
+      		var self=plus.webview.currentWebview();
+      		var  carid=self.che_id;
+      		plus.ui.toast(carid);
+      	     mui.ajax('http://admin2.xachezhixin.com/Api/car_img',{
+      	     	data:{
+      	     		id:carid,
+      	     	},
+      	     	dataType:'json',//数据格式类型
+  				type:'GET',//http 请求类型
+  				timeout:10000,//超时设置s
+  				success:function(data){
+  					//plus.ui.toast(data);
+  					var list=document.getElementById("list");
+      				var finallist='';
+      				for(i=data.length-1;i>=0;i--){
+      					finallist=finallist+'<div class="mui-slider-item"><a href="#"><img src="http://admin2.xachezhixin.com/Public/Cheku/'+data[i].src+'"></a></div>';
+      				}
+      				list.innerHTML=finallist;
+  				}
+      	     })
+      	})
+      	
+    </script>
+    <style type="text/css">
+    	.mui-slider-item
+    </style>
+</head>
+<body>
+	 	
+	
+		<div id="slider" class="mui-slider" >
+			<div class="mui-slider-group mui-slider-loop" id="list">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="../../images/chezhixin-btn.png">
+					</a>
+				</div>
+				
+			</div>
+			
+		</div>
+		<script src="../js/mui.min.js"></script>
+	
+</body>
+</html>

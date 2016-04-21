@@ -1,0 +1,132 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/logo.png",
+			"css/login.css"
+		],
+		"refer": [
+			"register.html",
+			"list.html",
+			"examples/user/register.html",
+			"examples/car/list.html",
+			"main.html"
+		]
+	},
+	"register.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"examples/car/list.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"examples/car/carlist.html",
+			"examples/car/qiche_list.html",
+			"examples/Cheku/cheku_list.html",
+			"examples/Home/home_list.html"
+		],
+		"refer": [
+			"examples/car/carlist.html",
+			"examples/car/qiche_list.html",
+			"examples/Cheku/cheku_list.html",
+			"examples/Contacts/contacts_list.html",
+			"examples/Dianxiao/dianxiao_list.html",
+			"examples/Home/home_list.html",
+			"examples/Cheku/cheku_main.html",
+			"examples/Dianxiao/dianxiao_main.html",
+			"examples/Contacts/contacts_main.html"
+		]
+	},
+	"examples/car/carlist.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"examples/Contacts/contacts_list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		]
+	},
+	"examples/Dianxiao/dianxiao_list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"examples/Cheku/cheku_list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"examples/Cheku/cheku_detail.html"
+		]
+	},
+	"examples/Home/home_list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"examples/Cheku/cheku_main.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"examples/Cheku/cheku_list.html"
+		],
+		"refer": [
+			"examples/Cheku/cheku_list.html"
+		]
+	},
+	"examples/Dianxiao/dianxiao_main.html": {
+		"resources": [
+			"examples/Dianxiao/dianxiao_list.html"
+		],
+		"refer": [
+			"examples/Dianxiao/dianxiao_list.html"
+		]
+	},
+	"examples/Contacts/contacts_main.html": {
+		"resources": [
+			"examples/Contacts/contacts_list.html"
+		],
+		"refer": [
+			"examples/Contacts/contacts_list.html"
+		]
+	},
+	"examples/Cheku/cheku_detail.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/logo.png",
+			"images/chezhixin-btn.png"
+		]
+	}
+}

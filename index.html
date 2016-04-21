@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录</title>
+		 <script src="js/mui.min.js"></script>
+         <link href="css/mui.min.css" rel="stylesheet"/>
+		<link href="css/login.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+       	   mui.init();
+       	   mui.plusReady(function(){
+       	       var tempusername=plus.storage.setItem("username");
+       	       var temppassworde=plus.storage.setItem("password");
+       	          mui.openWindow({
+		  							url:'main.html',
+		  							id:'main'
+		  						})
+	       	   	var username=document.getElementById("username");//用户名
+	      		var password=document.getElementById("password");//密码
+	      		var login=document.getElementById("login");//登录按钮
+	      		var reg=document.getElementById("reg");//注册按钮
+	      		//点击登录处理方法
+	      		login.addEventListener('tap',function(){
+		      			if(username.value.length==0){
+		      				plus.ui.toast('用户名不能为空');
+		      				return;
+		      			}
+		      			if(password.value.length==0){
+		      				plus.ui.toast('密码不能为空');
+		      				return;
+		      			}
+		  				mui.ajax('http://admin2.xachezhixin.com/Api/login',{
+		  				data:{
+		  					username:username.value,
+		  					password:password.value,
+		  				},
+		  				dataType:'json',//数据格式类型
+		  				type:'POST',//http 请求类型
+		  				timeout:10000,//超时设置
+		  				success:function(data){
+		  					//处理成功返回数据
+		  					if(data==1){
+		  						plus.ui.toast('登录成功');
+		  						/*本地存储用户名密码*/
+		  						plus.storage.setItem("username",username.value);
+                                plus.storage.setItem("password",password.value);
+		  						mui.openWindow({
+		  							url:'main.html',
+		  							id:'main'
+		  						})
+		  					}else{
+		  						plus.ui.toast(data);
+		  					}
+		  				},
+		  				error:function(){
+		  					 plus.nativeUI.toast("连接超时,请重试");
+		  				}
+		  			});
+	      	});
+	      	//点击注册按钮
+	      		reg.addEventListener('tap',function(){
+	      			mui.openWindow({
+		  							url:'examples/user/register.html',
+		  							id:'reg'
+		  						})
+	      		})
+	      	
+	      	
+	      		var backButtonPress = 0;
+			    mui.back = function(event) {
+						backButtonPress++;
+						if (backButtonPress > 1) {
+							plus.runtime.quit();
+						} else {
+							plus.nativeUI.toast('再按一次退出应用');
+						}
+						setTimeout(function() {
+							backButtonPress = 0;
+						}, 1000);
+						return false;
+				};
+       	  });
+			
+        </script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">登录</h1>
+		</header>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-password" placeholder="请输入密码">
+				</div>
+			</form>
+			<form class="mui-input-group">
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						自动登录
+						<div id="autoLogin" class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="mui-content-padded">
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<div class="link-area"><a id='reg' >注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>
